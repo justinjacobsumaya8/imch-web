@@ -1,0 +1,42 @@
+@import 'variables';
+.navbar {
+    display: flex;
+    .bar {
+        .logo {
+            max-height: 4.85714286em;
+            max-width: none;
+        }
+    }
+    .wrap-container {
+        display: flex;
+        .menu-wrap {
+            display: flex;
+            p {
+                color: #9f9f9f;
+            }
+        }
+    }
+    .dropdown {
+        &:hover>.dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            top: 95%;
+            border: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 0;
+            min-width: 200px;
+            border-top: 3px solid $primary;
+            .dropdown-item {
+                font-size: 15px;
+            }
+        }
+        .dropdown-toggle::after {
+            border: 0;
+        }
+    }
+    .nav-item {
+        font-size: 15px;
+        margin-right: 12px;
+    }
+}

@@ -1,7 +1,20 @@
-#breadcrumbs {
-    background-color: #e9ecef;
+@import 'fonts';
+body {
+    font-family: 'Averta', sans-serif;
 }
 
-.alert.header-message {
-    border-radius: 0 !important;
+img {
+    max-width: 100%;
 }
+
+@import 'menu';
+.font-semibold {
+    font-family: 'Averta Semibold', sans-serif;
+}
+
+// #breadcrumbs {
+//     background-color: #e9ecef;
+// }
+// .alert.header-message {
+//     border-radius: 0 !important;
+// }

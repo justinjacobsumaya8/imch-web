@@ -19,7 +19,6 @@
 <body>
     @include('includes.partials.read-only')
     @include('includes.partials.logged-in-as')
-    @include('includes.partials.announcements')
 
     <div id="app">
         @include('frontend.includes.nav')
@@ -34,6 +33,10 @@
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/frontend.js') }}"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace()
+    </script>
     <livewire:scripts />
     @stack('after-scripts')
 </body>

@@ -1,103 +1,65 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container">
-        <x-utils.link
-            :href="route('frontend.index')"
-            :text="appName()"
-            class="navbar-brand" />
+            <div class="bar">
+                <img src="{{ asset('img/logo-dark.png') }}" class="logo" alt=""/>
+            </div>
+            <div class="wrap-container">
+                <div class="menu-wrap mr-3">
+                    <i data-feather="check-circle" class="mr-3"></i>
+                    <div class="menu-wrap-text">
+                        <h6 class="mb-0 font-semibold">Trusted By</h6>
+                        <p class="mb-0">10,000+ People</p>
+                    </div>
+                </div>
+                <div class="menu-wrap ">
+                    <i data-feather="check-circle" class="mr-3"></i>
+                    <div class="menu-wrap-text">
+                        <h6 class="mb-0 font-semibold">Best Hospital</h6>
+                        <p class="mb-0">Iligan City</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div><!--container-->
+</nav>
+<nav class="navbar navbar-expand-md navbar-light bg-white">
+    <div class="container">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('Toggle navigation')">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                @if(config('boilerplate.locale.status') && count(config('boilerplate.locale.languages')) > 1)
-                    <li class="nav-item dropdown">
-                        <x-utils.link
-                            :text="__(getLocaleName(app()->getLocale()))"
-                            class="nav-link dropdown-toggle"
-                            id="navbarDropdownLanguageLink"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false" />
-
-                        @include('includes.partials.lang')
+            <div class="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                @endif
-
-                @guest
                     <li class="nav-item">
-                        <x-utils.link
-                            :href="route('frontend.auth.login')"
-                            :active="activeClass(Route::is('frontend.auth.login'))"
-                            :text="__('Login')"
-                            class="nav-link" />
+                        <a class="nav-link" href="#">About Us</a>
                     </li>
-
-                    @if (config('boilerplate.access.user.registration'))
-                        <li class="nav-item">
-                            <x-utils.link
-                                :href="route('frontend.auth.register')"
-                                :active="activeClass(Route::is('frontend.auth.register'))"
-                                :text="__('Register')"
-                                class="nav-link" />
-
-                        </li>
-                    @endif
-                @else
                     <li class="nav-item dropdown">
-                        <x-utils.link
-                            href="#"
-                            id="navbarDropdown"
-                            class="nav-link dropdown-toggle"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            v-pre
-                        >
-                            <x-slot name="text">
-                                <img class="rounded-circle" style="max-height: 20px" src="{{ $logged_in_user->avatar }}" />
-                                {{ $logged_in_user->name }} <span class="caret"></span>
-                            </x-slot>
-                        </x-utils.link>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @if ($logged_in_user->isAdmin())
-                                <x-utils.link
-                                    :href="route('admin.dashboard')"
-                                    :text="__('Administration')"
-                                    class="dropdown-item" />
-                            @endif
-
-                            @if ($logged_in_user->isUser())
-                                <x-utils.link
-                                    :href="route('frontend.user.dashboard')"
-                                    :active="activeClass(Route::is('frontend.user.dashboard'))"
-                                    :text="__('Dashboard')"
-                                    class="dropdown-item"/>
-                            @endif
-
-                            <x-utils.link
-                                :href="route('frontend.user.account')"
-                                :active="activeClass(Route::is('frontend.user.account'))"
-                                :text="__('My Account')"
-                                class="dropdown-item" />
-
-                            <x-utils.link
-                                :text="__('Logout')"
-                                class="dropdown-item"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <x-slot name="text">
-                                    @lang('Logout')
-                                    <x-forms.post :action="route('frontend.auth.logout')" id="logout-form" class="d-none" />
-                                </x-slot>
-                            </x-utils.link>
-                        </div>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Our Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Services 1</a>
+                            <a class="dropdown-item" href="#">Services 2</a>
+                        </div>  
                     </li>
-                @endguest
-            </ul>
-        </div><!--navbar-collapse-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Our Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blogs</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="btn btn-primary" href="#">Contact Us</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        
     </div><!--container-->
 </nav>
 
