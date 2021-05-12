@@ -18,6 +18,15 @@
                 :text="__('Dashboard')" />
         </li>
 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.entries')"
+                :active="activeClass(Route::is('admin.entries'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-notes"
+                :text="__('Entries')" />
+        </li>
+
         @if (
             $logged_in_user->hasAllAccess() ||
             (
