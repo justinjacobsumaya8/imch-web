@@ -1,8 +1,5 @@
 {
     "private": true,
-    "engines": {
-        "node": "14.16.1"
-    },
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
@@ -14,6 +11,9 @@
         "postinstall": "npm run production",
         "heroku-prebuild": "npm install -f",
         "heroku-postbuild": "npm run production",
+        "engines": {
+            "node": "14.16.1"
+        },
     },
     "devDependencies": {
         "@coreui/coreui": "^3.0.0",
