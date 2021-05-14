@@ -10,7 +10,7 @@
         "production": "mix --production",
         "postinstall": "npm run production",
         "heroku-prebuild": "npm install -f",
-        "heroku-postbuild": "npm run production",
+        "heroku-postbuild": "npm run production"
     },
     "devDependencies": {
         "@coreui/coreui": "^3.0.0",
@@ -33,9 +33,6 @@
         "sweetalert2": "^9.8.2",
         "vue": "^2.5.17",
         "vue-loader": "^15.9.5",
-        "vue-template-compiler": "^2.6.10",
-        "engines": {
-            "node": "14.16.1"
-        }
+        "vue-template-compiler": "^2.6.10"
     }
 }
