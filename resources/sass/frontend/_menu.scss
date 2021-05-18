@@ -1,6 +1,9 @@
 @import 'variables';
 .navbar {
     display: flex;
+    .btn {
+        padding: 0.35rem 1.3rem;
+    }
     .bar {
         .logo {
             max-height: 4.85714286em;
@@ -13,6 +16,9 @@
             display: flex;
             p {
                 color: #9f9f9f;
+            }
+            svg {
+                stroke: #8d094b;
             }
         }
     }
@@ -38,5 +44,8 @@
     .nav-item {
         font-size: 15px;
         margin-right: 12px;
+    }
+    &.bot-menu {
+        padding-bottom: 1em;
     }
 }

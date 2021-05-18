@@ -1,17 +1,140 @@
 @import 'fonts';
 body {
-    font-family: 'Averta', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 img {
     max-width: 100%;
 }
 
-@import 'menu';
-.font-semibold {
-    font-family: 'Averta Semibold', sans-serif;
+.font {
+    &-thin {
+        font-weight: 300;
+    }
+    &-medium {
+        font-weight: 500;
+    }
+    &-semibold {
+        font-weight: 600;
+    }
+    &-bold {
+        font-weight: 700;
+    }
+    &-black {
+        font-weight: 900;
+    }
 }
 
+@import 'menu';
+.font-semibold {
+    font-weight: 500;
+}
+
+.btn {
+    border-radius: 50px;
+    &.btn-curve {
+        background: transparent;
+        border: 0;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    &.btn-curve:hover:after {
+        bottom: -10px;
+        border-radius: 0;
+    }
+    &.btn-curve:hover {
+        border-color: #b92a5b;
+    }
+    &.btn-curve:hover span {
+        color: #fff !important;
+    }
+    &.btn-curve:after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: 100%;
+        background: #b92a5b;
+        border-color: #b92a5b;
+        border-radius: 0 0 100% 100%/0 0 100% 100%;
+        -webkit-transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
+        transition: all 0.6s cubic-bezier(1, 0, 0.55, 1);
+    }
+    &.btn-curve span {
+        position: relative;
+        z-index: 1;
+        -webkit-transition: all .8s;
+        transition: all .8s;
+    }
+    &.btn-primary {
+        background: $primary;
+    }
+    &.btn-primary-gradient {
+        border: 0;
+        background-image: linear-gradient(to right, #803250 0%, #540447 100%);
+    }
+}
+
+.slick-slider {
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        &.slick-prev {
+            left: 1em;
+        }
+        &.slick-next {
+            right: 1em;
+        }
+    }
+    .slick-dots {
+        bottom: 1em;
+        li {
+            button {
+                border: 1px solid $black;
+                outline: none;
+                background: transparent;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+.imagebg {
+    position: relative;
+}
+
+.background-image-holder {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    z-index: 0;
+    transition: opacity .3s linear;
+    -webkit-transition: opacity .3s linear;
+    opacity: 0;
+    background: #252525;
+    img {
+        display: none;
+    }
+    &:not([class*='col-']) {
+        width: 100%;
+    }
+}
+
+.pos-vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+@import 'home';
 // #breadcrumbs {
 //     background-color: #e9ecef;
 // }
