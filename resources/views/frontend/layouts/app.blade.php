@@ -11,7 +11,10 @@
 
     @stack('before-styles')
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link href="{{ mix('css/frontend.css') }}" rel="stylesheet">
     <link href="{{ url('packages/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
     <link href="{{ url('packages/css/custom.css') }}" rel="stylesheet">
@@ -36,6 +39,7 @@
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/frontend.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="{{ url('packages/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ url('packages/jquery-steps/jquery.steps.min.js') }}"></script>
