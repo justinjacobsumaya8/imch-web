@@ -1,0 +1,42 @@
+.wizard .content {
+    min-height: 100px;
+}
+
+.wizard .content > .body {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+}
+
+.wizard .content .body.current {
+    position: relative;
+}
+
+@media (max-width: 767px){
+
+    .wizard>.steps {
+        width: 100% !important;
+    }
+
+    .wizard> .content {
+        width: 100% !important;
+    }
+
+    .wizard>.actions {
+        width: 100% !important;
+    }
+
+    .wizard>.steps>ul>li {
+    	width: 100% !important;
+    }
+
+    .m-t-2 {
+        padding-top: 0.5rem !important;
+    }
+
+    .btn-sm-block {
+        width: 100% !important;
+        display: block !important;
+    }
+}

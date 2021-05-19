@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link href="{{ mix('css/frontend.css') }}" rel="stylesheet">
+    <link href="{{ url('packages/jquery-steps/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ url('packages/css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <livewire:styles />
     @stack('after-styles')
 </head>
@@ -39,7 +42,8 @@
     <script src="{{ mix('js/frontend.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    
+    <script src="{{ url('packages/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ url('packages/jquery-steps/jquery.steps.min.js') }}"></script>
     <script>
         feather.replace()
     </script>
