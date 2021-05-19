@@ -1,6 +1,15 @@
 @import 'fonts';
 body {
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    p {
+        font-weight: 300;
+    }
+}
+
+section {
+    padding: 5em 0;
+    position: relative;
 }
 
 img {
@@ -23,6 +32,16 @@ img {
     &-black {
         font-weight: 900;
     }
+}
+
+.color {
+    &-primary {
+        color: $primary;
+    }
+}
+
+.pos-relative {
+    position: relative;
 }
 
 @import 'menu';
@@ -134,10 +153,23 @@ img {
     -webkit-transform: translateY(-50%);
 }
 
-@import 'home';
+// @import 'home';
 // #breadcrumbs {
 //     background-color: #e9ecef;
 // }
 // .alert.header-message {
 //     border-radius: 0 !important;
 // }
+footer {
+    padding: 4em 0 1em;
+    .f-logo {
+        max-height: 5em;
+    }
+    .list-menu {
+        list-style: none;
+        padding: 0;
+        li {
+            padding: 0.3em 0;
+        }
+    }
+}

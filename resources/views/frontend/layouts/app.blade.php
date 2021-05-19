@@ -30,6 +30,7 @@
         <main>
             @yield('content')
         </main>
+        @include('frontend.includes.footer')
     </div><!--app-->
 
     @stack('before-scripts')

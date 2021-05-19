@@ -1,3 +1,4 @@
+@import 'variables';
 .home-banner-slider {
     position: relative;
     &.slick-dotted.slick-slider {
@@ -19,10 +20,12 @@
             color: rgb(255, 179, 179);
         }
         .desc {
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
         .btn-lg {
-            padding: 0.7rem 2.3rem;
+            padding: 0.6rem 2.3rem;
+            line-height: 1;
+            height: 40px;
             span {
                 line-height: 1;
                 font-size: 0.9rem;
@@ -32,6 +35,7 @@
         }
     }
     .slick-dots {
+        bottom: 6em;
         li {
             button {
                 border-color: transparent;
@@ -75,5 +79,55 @@
                 }
             }
         }
+    }
+}
+
+.height-50 {
+    height: 50vh;
+    @media (max-width: 767px) {
+        height: 100%;
+    }
+}
+
+.floating-box {
+    position: absolute;
+    top: -4em;
+    background-image: linear-gradient(to right, #803250 0%, #540447 100%);
+    padding: 3em;
+    border-radius: 10px;
+    width: 100%;
+    left: 0;
+    * {
+        color: white;
+    }
+    .open-hours {
+        border-bottom: 1px solid #ccc;
+        padding: 1em 0;
+    }
+    @media (max-width:767px) {
+        position: relative;
+    }
+}
+
+.card-doctors {
+    .imagebg {
+        height: 50vh;
+    }
+    .card-body-desc {
+        padding: 2em 1em;
+        background: $white;
+        box-shadow: 0 0 20px rgba(150, 150, 150, 0.4);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        h4 {
+            color: $primary;
+        }
+    }
+}
+
+a {
+    color: initial;
+    &:hover {
+        text-decoration: none;
     }
 }
