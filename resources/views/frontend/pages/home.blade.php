@@ -1,7 +1,7 @@
-@section('content')
 @push('after-styles')
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @endpush
+@section('content')
 <section class="home-banner-slider slider p-0">
     
 

@@ -1,4 +1,4 @@
-<footer class="bg-secondary">
+<footer>
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-4">
@@ -10,16 +10,16 @@
                 <h6 class="font-semibold color-primary mb-3">Quick Links</h6>
                 <ul class="list-menu">
                     <li>
-                        <a href="#" class="">About Us</a>
+                        <a href="#" class="small">About Us</a>
                     </li>
                     <li>
-                        <a href="#" class="">Our Doctors</a>
+                        <a href="#" class="small">Our Doctors</a>
                     </li>
                     <li>
-                        <a href="#" class="">Our Services</a>
+                        <a href="#" class="small">Our Services</a>
                     </li>
                     <li>
-                        <a href="#" class="">Blogs</a>
+                        <a href="#" class="small">Blogs</a>
                     </li>
                     
                 </ul>
@@ -29,23 +29,23 @@
                 <h6 class="font-semibold color-primary mb-3">Our Services</h6>
                 <ul class="list-menu">
                     <li>
-                        <a href="#">Lung Disease</a>
+                        <a href="#" class="small">Lung Disease</a>
                     </li>
                     <li>
-                        <a href="#">Orthopedic</a>
+                        <a href="#" class="small">Orthopedic</a>
                     </li>
                     <li>
-                        <a href="#">Pharmacy</a>
+                        <a href="#" class="small">Pharmacy</a>
                     </li>
                     <li>
-                        <a href="#">Dental Services</a>
+                        <a href="#" class="small">Dental Services</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4 pt-3">
                 <h6 class="font-semibold color-primary mb-3">Contact Us</h6>
                 <p class="small">If you have any questions or need help, feel free to contact us for medical assistance.</p>
-                <h5 class="font-thin">Call: (063)222-1234</h5>
+                <h6 class="font-semibold">Call: (063)222-1234</h6>
             </div>
         </div>
         <hr/>

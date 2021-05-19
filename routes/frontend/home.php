@@ -3,6 +3,7 @@
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TermsController;
 use App\Http\Controllers\Frontend\CovidCIFController;
+use App\Http\Controllers\Frontend\PagesController;
 use Tabuna\Breadcrumbs\Trail;
 
 /*
@@ -30,3 +31,8 @@ Route::get('covid19-case-investigation-form', [CovidCIFController::class, 'index
     });
 
 Route::post('covid19-case-investigation-form/store', [CovidCIFController::class, 'store']);
+Route::get('/our-doctors', [PagesController::class, 'our_doctors'])
+    ->name('pages.our-doctors')
+    ->breadcrumbs(function (Trail $trail) {
+        $trail->push(__('Our Doctors'), route('frontend.pages.our-doctors'));
+    });

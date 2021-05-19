@@ -153,6 +153,11 @@ img {
     -webkit-transform: translateY(-50%);
 }
 
+.breadcrumb {
+    display: none;
+    background: transparent;
+}
+
 // @import 'home';
 // #breadcrumbs {
 //     background-color: #e9ecef;
@@ -162,6 +167,7 @@ img {
 // }
 footer {
     padding: 4em 0 1em;
+    background: #f3f3f3;
     .f-logo {
         max-height: 5em;
     }
@@ -169,7 +175,7 @@ footer {
         list-style: none;
         padding: 0;
         li {
-            padding: 0.3em 0;
+            padding: 0.1em 0;
         }
     }
 }
