@@ -13,17 +13,19 @@
             <form action="{{ url('admin/entries/' . $entry->id . '/update') }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <div class="row float-right">
-                    <div class="col-md-7">
-                        <select name="status" class="form-control">
-                            <option value="">-- Select Status --</option>
-                            @foreach($statuses as $status)
-                            <option value="{{ $status }}" {{ $entry->status == $status ? 'selected' : '' }}>{{ $status }}</option>
-                            @endforeach
-                        </select>  
-                    </div>
-                    <div class="col-md-5">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp; Update</button>  
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <select name="status" class="form-control">
+                                <option value="">-- Select Status --</option>
+                                @foreach($statuses as $status)
+                                <option value="{{ $status }}" {{ $entry->status == $status ? 'selected' : '' }}>{{ $status }}</option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Update</button>  
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </form>
