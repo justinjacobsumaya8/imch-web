@@ -127,7 +127,7 @@
                         </div>
                         <div class="card-body-desc text-center">
                             <h4 class="font-bold">Dr. Lorraine Dy </h4>
-                            <p>Pediatrician</p>
+                            <p class="mb-0">Pediatrician</p>
                         </div>
                     </div>  
                 </a>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="card-body-desc text-center">
                             <h4 class="font-bold">Dr. Henry Sy </h4>
-                            <p>General Practictioner</p>
+                            <p class="mb-0">General Practictioner</p>
                         </div>
                     </div>
                 </a>  
@@ -157,7 +157,7 @@
                         </div>
                         <div class="card-body-desc text-center">
                             <h4 class="font-bold">Dr. Matthew Diaz </h4>
-                            <p>Anesthesiologist</p>
+                            <p class="mb-0">Anesthesiologist</p>
                         </div>
                     </div>  
                 </a>
