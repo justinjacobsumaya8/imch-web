@@ -7,7 +7,7 @@
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            <span class="text-capitalize">@lang('Edit') {{ $entry->full_name }}</span>
+            <span class="text-capitalize">{{ $entry->full_name }}</span>
         </x-slot>
 
         <x-slot name="body">

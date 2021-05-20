@@ -16,7 +16,7 @@
                             <h1 class="title font-bold mb-0">IMCH</h1>
                             <h2 class="sub-title font-thin mb-4">Medical Hospital in Iligan</h2>
                             <p class="desc font-thin mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                            <a class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
+                            <a href="{{ url('covid19-case-investigation-form') }}" class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <h1 class="title font-bold mb-0">IMCH</h1>
                             <h2 class="sub-title font-thin mb-4">Medical Hospital in Iligan</h2>
                             <p class="desc font-thin mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                            <a class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
+                            <a href="{{ url('covid19-case-investigation-form') }}" class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
                         </div>
                     </div>
                 </div>

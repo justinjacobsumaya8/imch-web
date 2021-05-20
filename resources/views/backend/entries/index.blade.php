@@ -73,7 +73,7 @@
                 data: 'id',
                 render: function(data, type, row, meta)
                 {
-                    return '<a class="btn btn-sm btn-primary" href="{{ url('admin/entries') }}/' + data + '/edit"><i class="fa fa-edit"></i> Edit</a>';
+                    return '<a class="btn btn-sm btn-primary" href="{{ url('admin/entries') }}/' + data + '/show"><i class="fa fa-eye"></i> Show</a>';
                 }
             }
         ],

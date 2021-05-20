@@ -22,10 +22,10 @@ Route::group(['prefix' => 'entries'], function () {
 	        $trail->push(__('Entries'), route('admin.entries'));
 	    });
 
-	Route::get('/{id}/edit', [EntriesController::class, 'edit'])
-	    ->name('entries.edit')
+	Route::get('/{id}/show', [EntriesController::class, 'show'])
+	    ->name('entries.show')
 	    ->breadcrumbs(function (Trail $trail) {
 	        $trail->parent('admin.entries')
-	            ->push('Edit Entry', url('admin/entries/' . '{id}' . '/edit'  ));
+	            ->push('Show Entry', url('admin/entries/' . '{id}' . '/show'  ));
 	    });
 });

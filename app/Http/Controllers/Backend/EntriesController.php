@@ -14,10 +14,10 @@ class EntriesController extends Controller
     	return view('backend.entries.index', compact('entries'));
     }
 
-    public function edit($id)
+    public function show($id)
     {
     	$entry = Entry::findOrFail($id);
-    	return view('backend.entries.edit', compact('entry'));
+    	return view('backend.entries.show', compact('entry'));
     }
 
     public function getEntries()
