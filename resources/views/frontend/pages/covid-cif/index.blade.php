@@ -208,10 +208,10 @@
                             <div class="row mt-3">
                                 <div class="col-sm-12 col-lg">
                                     <label>Country</label>
-                                    <select name="country_birth" class="form-control">
+                                    <select name="overseas_country" class="form-control">
                                         <option selected="" value="">-- Select --</option>
                                         @foreach($countries as $country)
-                                        <option value="{{ $country['name'] }}" @if (old('country_birth') == $country['name']) {{ 'selected' }} @endif>{{ $country['name'] }}</option>
+                                        <option value="{{ $country['name'] }}" @if (old('overseas_country') == $country['name']) {{ 'selected' }} @endif>{{ $country['name'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
