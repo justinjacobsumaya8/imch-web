@@ -81,6 +81,7 @@
             </li>
         @endif
 
+        @if(null)
         @if ($logged_in_user->hasAllAccess())
             <li class="c-sidebar-nav-dropdown">
                 <x-utils.link
@@ -104,6 +105,7 @@
                     </li>
                 </ul>
             </li>
+        @endif
         @endif
     </ul>
 

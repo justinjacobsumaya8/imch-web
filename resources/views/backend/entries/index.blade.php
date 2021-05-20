@@ -9,7 +9,7 @@
         </x-slot>
 
         <x-slot name="body">
-            <table class="table table-hover table-bordered nowrap">
+            <table id="table-entries" class="table table-hover table-bordered nowrap">
             	<thead>
             		<tr>
             			<th>Full Name</th>
@@ -20,27 +20,68 @@
             		</tr>
             	</thead>
             	<tbody>
-            		@forelse($entries as $entry)
-            		<tr>
-            			<td>{{ $entry->full_name }}</td>
-            			<td>
-            				@if($entry->status == 'Pending')
-            				<span class="badge badge-warning">{{ $entry->status }}</span>
-            				@endif
-            			</td>
-            			<td>{{ date('M d, Y', strtotime($entry->created_at)) }}</td>
-            			<td>{{ date('M d, Y', strtotime($entry->updated_at)) }}</td>
-            			<td>
-            				<a href="#" class="btn btn-primary">Edit</a>
-            			</td>
-            		</tr>
-            		@empty
-            		<tr>
-            			<td class="text-center" colspan="5">No data available.</td>
-            		</tr>
-            		@endforelse
+            		
             	</tbody>
             </table>
         </x-slot>
     </x-backend.card>
 @endsection
+
+@push('after-scripts')
+<script type="text/javascript">
+    $('#table-entries').DataTable({
+        ajax: "{{ url('admin/entries/get') }}",
+        columns: [
+            {
+                data: 'full_name'
+            },
+            {
+                data: 'status',
+                render: function(data, type, row, meta)
+                {
+                    var html = '<span class="badge badge-warning">Pending</span>';
+                    if (data == 'Negative') 
+                    {
+                        html = '<span class="badge badge-success">Negative</span>';
+                    }
+
+                    if (data == 'Positive') 
+                    {
+                        html = '<span class="badge badge-danger">Positive</span>';
+                    }
+
+                    return html;
+                }
+            },
+            {
+                data: 'created_at',
+                render: function(data, type, row, meta)
+                {
+                    var date = moment(data).format('MMMM Do YYYY, h:mm:ss a');
+                    return date;
+                }
+            },
+            {
+                data: 'updated_at',
+                render: function(data, type, row, meta)
+                {
+                    var date = moment(data).format('MMMM Do YYYY, h:mm:ss a');
+                    return date;
+                }
+            },
+            {
+                data: 'id',
+                render: function(data, type, row, meta)
+                {
+                    return '<a class="btn btn-sm btn-primary" href="{{ url('admin/entries') }}/' + data + '/edit"><i class="fa fa-edit"></i> Edit</a>';
+                }
+            }
+        ],
+        rowCallback: function (row, data, cell ) {
+            
+            $(row).find('td:first-child').addClass('text-capitalize');
+        },
+        order: [2, 'desc']
+    });
+</script>
+@endpush

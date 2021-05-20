@@ -16,6 +16,7 @@
     <ul class="c-header-nav d-md-down-none">
         <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="{{ route('frontend.index') }}">@lang('Home')</a></li>
 
+        @if(null)
         @if(config('boilerplate.locale.status') && count(config('boilerplate.locale.languages')) > 1)
             <li class="c-header-nav-item dropdown">
                 <x-utils.link
@@ -28,6 +29,7 @@
 
                 @include('includes.partials.lang')
             </li>
+        @endif
         @endif
     </ul>
 

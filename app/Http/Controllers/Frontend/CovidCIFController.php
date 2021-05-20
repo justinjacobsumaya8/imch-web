@@ -13,7 +13,11 @@ class CovidCIFController extends Controller
     {
     	$genders = ['Male', 'Female'];
     	$civil_statuses = ['Married', 'Widowed', 'Separated', 'Divorced', 'Single'];
-    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses'));
+
+        $path = public_path() . "/json/countries.json";
+        $countries = json_decode(file_get_contents($path), true); 
+
+    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses', 'countries'));
     }
 
     public function store(CovidCIFRequest $request)

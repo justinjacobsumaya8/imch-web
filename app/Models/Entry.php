@@ -11,6 +11,8 @@ class Entry extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['full_name'];
+
     public function scopeActive($query)
     {
     	$query->where('is_deleted', '!=', true);
