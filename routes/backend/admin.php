@@ -28,4 +28,6 @@ Route::group(['prefix' => 'entries'], function () {
 	        $trail->parent('admin.entries')
 	            ->push('Show Entry', url('admin/entries/' . '{id}' . '/show'  ));
 	    });
+
+	Route::patch('{id}/update', [EntriesController::class, 'update']);
 });

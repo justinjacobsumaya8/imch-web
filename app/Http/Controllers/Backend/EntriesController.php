@@ -17,7 +17,17 @@ class EntriesController extends Controller
     public function show($id)
     {
     	$entry = Entry::findOrFail($id);
-    	return view('backend.entries.show', compact('entry'));
+        $statuses = ['Pending', 'Negative', 'Positive'];
+    	return view('backend.entries.show', compact('entry', 'statuses'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $entry = Entry::findOrFail($id);
+        $entry->status = $request->status;
+        $entry->save();
+
+        return redirect()->back()->with('flash_success', 'Status updated successfully.');
     }
 
     public function getEntries()

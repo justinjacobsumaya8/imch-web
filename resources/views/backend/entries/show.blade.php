@@ -5,9 +5,28 @@
 @endsection
 
 @section('content')
+    <div class="mb-2">
+        <a href="{{ url('admin/entries') }}" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Back</a>
+    </div>
     <x-backend.card>
         <x-slot name="header">
-            <span class="text-capitalize">{{ $entry->full_name }}</span>
+            <form action="{{ url('admin/entries/' . $entry->id . '/update') }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <div class="row float-right">
+                    <div class="col-md-7">
+                        <select name="status" class="form-control">
+                            <option value="">-- Select Status --</option>
+                            @foreach($statuses as $status)
+                            <option value="{{ $status }}" {{ $entry->status == $status ? 'selected' : '' }}>{{ $status }}</option>
+                            @endforeach
+                        </select>  
+                    </div>
+                    <div class="col-md-5">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp; Update</button>  
+                    </div>
+                </div>
+            </form>
         </x-slot>
 
         <x-slot name="body">
