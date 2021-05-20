@@ -15,7 +15,7 @@
                         <div class="col-md-6">
                             <h1 class="title font-bold mb-0">IMCH</h1>
                             <h2 class="sub-title font-thin mb-4">Medical Hospital in Iligan</h2>
-                            <p class="desc font-thin mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            <p class="desc font-thin mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
                             <a class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                         <div class="col-md-6">
                             <h1 class="title font-bold mb-0">IMCH</h1>
                             <h2 class="sub-title font-thin mb-4">Medical Hospital in Iligan</h2>
-                            <p class="desc font-thin mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                            <p class="desc font-thin mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
                             <a class="btn btn-lg btn-primary-gradient btn-curve"><span>Covid Form</span></a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                             c6.875,0,13.67,1.745,19.717,5.063C134.589,22.929,142.657,36.642,142.657,51.487z"/>
                         </g>
                     </svg>
-                    <h4>Emergency Service</h4>
+                    <h4 class="mb-0">Emergency Service</h4>
                 </div>
                 <p class="font-thin mb-4">An emergency department (ED), also known as an accident & emergency department (A&E), emergency room (ER), emergency ward (EW) or casualty department, is a medical treatment.</p>
                 <h4>Call: (063)222-1234</h4>
@@ -79,7 +79,7 @@
                         <path d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"/>
                         <path d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"/>
                     </svg>
-                    <h4>Opening Hours</h4>
+                    <h4 class="mb-0">Opening Hours</h4>
                 </div>
                 <p class="font-thin mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
                 <div class="open-hours">
