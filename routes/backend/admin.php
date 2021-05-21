@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Backend\{DashboardController, EntriesController};
+use App\Http\Controllers\Backend\{DashboardController, EntriesController, SchedulesController};
 use Tabuna\Breadcrumbs\Trail;
 
 use App\Models\Entry;
@@ -30,4 +30,12 @@ Route::group(['prefix' => 'entries'], function () {
 	    });
 
 	Route::patch('{id}/update', [EntriesController::class, 'update']);
+});
+
+Route::group(['prefix' => 'schedules'], function () {
+	Route::get('/', [SchedulesController::class, 'index'])
+	    ->name('schedules')
+	    ->breadcrumbs(function (Trail $trail) {
+	        $trail->push(__('Schedules'), route('admin.schedules'));
+	    });
 });

@@ -3,6 +3,7 @@
 @section('title', __('Covid-19 Case Investigation Form'))
 
 @section('content')
+@include('frontend.pages.covid-cif._schedule')
     <div class="container py-2">
         <x-frontend.card>
             <x-slot name="header">
@@ -12,7 +13,10 @@
             <x-slot name="body">
                 <form action="{{ url('covid19-case-investigation-form/store') }}" method="post" novalidate="" id="register">
                     @csrf
-                    <div>
+                    <div class="c-form-active">
+                        <div class="c-form-button d-flex justify-content-center">
+                            <label>Please select schedule first. <a href="javascript:void(0)" data-toggle="modal" data-target="#schedule">Click here</a></label>
+                        </div>
                         <h2>Patient Profile</h2>
                         <section>
                             <div class="row">
@@ -235,15 +239,15 @@
                             <div class="row">
                                 <div class="col-sm-12 col-lg">
                                     <label>History of travel/visit/work in other countries with a known COVID-19 transmission 14 days before the onset of your signs and symptoms</label>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_history_of_travel_symptom" value="1" {{ old('is_history_of_travel_symptom') == 1 ? 'checked' : '' }} id="history_of_travel1">
-                                      <label class="form-check-label" for="history_of_travel1">
+                                      <label class="form-check-label mb-0" for="history_of_travel1">
                                         Yes
                                       </label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_history_of_travel_symptom" value="0" {{ old('is_history_of_travel_symptom') == 0 ? 'checked' : '' }} id="history_of_travel2">
-                                      <label class="form-check-label" for="history_of_travel2">
+                                      <label class="form-check-label mb-0" for="history_of_travel2">
                                         No
                                       </label>
                                     </div>
@@ -279,30 +283,32 @@
                             <div class="row mt-3">
                                 <div class="col-sm-12 col-lg">
                                     <label>Returning Overseas Filipino Worker (0FW)</label>
-                                    <div class="form-check">
+                                    <br>
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_returning_ofw" {{ old('is_returning_ofw') == 1 ? 'checked' : '' }} id="is_returning_ofw1">
-                                      <label class="form-check-label" for="is_returning_ofw1">
+                                      <label class="form-check-label mb-0" for="is_returning_ofw1">
                                         Yes
                                       </label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_returning_ofw" {{ old('is_returning_ofw') == 0 ? 'checked' : '' }} id="is_returning_ofw2">
-                                      <label class="form-check-label" for="is_returning_ofw2">
+                                      <label class="form-check-label mb-0" for="is_returning_ofw2">
                                         No
                                       </label>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-lg">
                                     <label>Locally Stranded Individual (LSI)</label>
-                                    <div class="form-check">
+                                    <br>
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_locally_stranded_lsi" {{ old('is_locally_stranded_lsi') == 1 ? 'checked' : '' }} id="is_locally_stranded_lsi1">
-                                      <label class="form-check-label" for="is_locally_stranded_lsi1">
+                                      <label class="form-check-label mb-0" for="is_locally_stranded_lsi1">
                                         Yes
                                       </label>
                                     </div>
-                                    <div class="form-check">
+                                    <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="is_locally_stranded_lsi" {{ old('is_locally_stranded_lsi') == 0 ? 'checked' : '' }} id="is_locally_stranded_lsi2">
-                                      <label class="form-check-label" for="is_locally_stranded_lsi2">
+                                      <label class="form-check-label mb-0" for="is_locally_stranded_lsi2">
                                         No
                                       </label>
                                     </div>
@@ -362,7 +368,7 @@
                     else
                     {
                         var dataString = form.serialize();
-                        Cookies.set('formCookie', dataString);
+                        Cookies.set('formCookie', dataString, { expires: 1 });
                         return true;
                     }
                 },

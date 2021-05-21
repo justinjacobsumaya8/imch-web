@@ -27,6 +27,15 @@
                 :text="__('Entries')" />
         </li>
 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.schedules')"
+                :active="activeClass(Route::is('admin.schedules'), 'c-active')"
+                icon="c-sidebar-nav-icon fa fa-calendar-alt"
+                :text="__('Schedules')" />
+        </li>
+
         @if (
             $logged_in_user->hasAllAccess() ||
             (
