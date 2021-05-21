@@ -83,7 +83,7 @@
     </div>
 </div>
 
-<div class="row mt-5">
+<div class="row mt-5 m-0 w-100">
     <div class="col-md-4" style="background-image: url('/img/hospital.jpeg');background-size: cover;background-position: left;padding: 50px 0px 60px 60px;">
         <div class="d-flex align-items-center">
             <i class="fa fa-3x fa-map-marker-alt mr-3 text-white"></i>
