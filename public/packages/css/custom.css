@@ -40,3 +40,7 @@
         display: block !important;
     }
 }
+
+.c-form-active {
+    opacity: 0.5;
+}

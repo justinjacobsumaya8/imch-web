@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Frontend\CovidCIFRequest;
-use App\Models\Entry;
+use App\Models\{Entry, Schedule};
 
 class CovidCIFController extends Controller
 {
@@ -20,12 +20,18 @@ class CovidCIFController extends Controller
         $nationality_path = public_path() . "/json/nationalities.json";
         $nationalities = json_decode(file_get_contents($nationality_path), true); 
 
-    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses', 'countries', 'nationalities'));
+        $schedules = Schedule::active()->get();
+    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses', 'countries', 'nationalities', 'schedules'));
     }
 
     public function store(CovidCIFRequest $request)
     {
-    	$data = new Entry;
+        $data = Entry::where('permanent_email_address', $request->permanent_email_address)->first();
+        if (!$data) 
+        {
+            $data = new Entry;
+        }
+    	
         $data->fill($request->except(['birthday', 'is_history_of_travel_symptom', 'is_returning_ofw', 'is_locally_stranded_lsi']));
         $data->status = 'Pending';
         $data->birthday = \Carbon\Carbon::createFromFormat('m/d/Y', $request->birthday)->format('Y-m-d');
