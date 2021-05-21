@@ -3,7 +3,7 @@
 @section('title', __('Covid-19 Case Investigation Form'))
 
 @section('content')
-    <div class="container py-4">
+    <div class="container py-2">
         <x-frontend.card>
             <x-slot name="header">
                 @lang('Covid-19 Case Investigation Form')
@@ -64,7 +64,12 @@
                                 </div>
                                 <div class="col-sm-12 col-lg m-t-2">
                                     <label>Nationality</label>
-                                    <input type="text" class="form-control" placeholder="" value="{{ old('nationality') }}" name="nationality"/>
+                                    <select class="form-control" name="nationality">
+                                        <option value="" selected="">-- Select --</option>
+                                        @foreach($nationalities as $nationality)
+                                        <option value="{{ $nationality }}" {{ (old('nationality') ? old('nationality') : 'Filipino') == $nationality ? 'selected' : '' }}>{{ $nationality }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -370,6 +375,7 @@
                 {
                     form.submit();
                     event.preventDefault();
+                    Cookies.remove('formCookie');
                     $('.form-preloader').addClass('active');
                 }
             }).ready(function(){
@@ -401,7 +407,7 @@
                 $('#current_region').val($('#permanent_region').val());
                 $('#current_home_phone_number').val($('#permanent_home_phone_number').val());
                 $('#current_cellphone_number').val($('#permanent_cellphone_number').val());
-                $('#current_other_email_address').val($('#permanent_email_address').val());
+                // $('#current_other_email_address').val($('#permanent_email_address').val());
             })
         });
 
@@ -409,20 +415,36 @@
         {
             // get serialized string from cookie    
             cookieData = Cookies.get('formCookie');
-            remove_token = cookieData.split('&').slice(1);
-            string = JSON.stringify(remove_token);
-            console.log(JSON.parse(string));
+
             // if cookie exists continue
             if (cookieData != null) {
                 // split cookieData string into an array of fields and their values
                 cookieArray = cookieData.split('&');
-
                 // go through each field and split it too to get field name and it's value
-                // $.each(cookieArray, function(k, v) {
-                //     field = v.split('=');
-                //     // populate field with data
-                //     $('#register [name="'+field[0]+'"]').val(field[1]);
-                // });
+                $.each(cookieArray, function(k, v) {
+                    field = v.split('=');
+                    // populate field with data
+                    if (field[0] == 'birthday') 
+                    {
+                        var newStr = field[1].split('%2F').filter(function(item) {
+                            item = item ? item.replace(/%2F/g, '/'): item
+                            return item;
+                        }).join('/');
+                        $('#register [name="'+field[0]+'"]').val(newStr);
+                    }
+                    else if (field[0] == 'permanent_email_address' || field[0] == 'current_other_email_address')
+                    {
+                        var permanent_email = field[1].split('%40').filter(function(item) {
+                            item = item ? item.replace(/%40/g, '@'): item
+                            return item;
+                        }).join('@');
+                        $('#register [name="'+field[0]+'"]').val(permanent_email);
+                    }
+                    else
+                    {
+                        $('#register [name="'+field[0]+'"]').val(field[1]);     
+                    }
+                });
             }
         }
     </script>

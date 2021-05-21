@@ -28,11 +28,11 @@
 
             <div class="">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.index') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                    <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.pages.about') }}">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

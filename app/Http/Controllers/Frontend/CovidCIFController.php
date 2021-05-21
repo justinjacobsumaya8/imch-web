@@ -14,10 +14,13 @@ class CovidCIFController extends Controller
     	$genders = ['Male', 'Female'];
     	$civil_statuses = ['Married', 'Widowed', 'Separated', 'Divorced', 'Single'];
 
-        $path = public_path() . "/json/countries.json";
-        $countries = json_decode(file_get_contents($path), true); 
+        $country_path = public_path() . "/json/countries.json";
+        $countries = json_decode(file_get_contents($country_path), true); 
 
-    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses', 'countries'));
+        $nationality_path = public_path() . "/json/nationalities.json";
+        $nationalities = json_decode(file_get_contents($nationality_path), true); 
+
+    	return view('frontend.pages.covid-cif.index', compact('genders', 'civil_statuses', 'countries', 'nationalities'));
     }
 
     public function store(CovidCIFRequest $request)

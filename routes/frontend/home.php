@@ -16,21 +16,12 @@ Route::get('/', [HomeController::class, 'index'])
         $trail->push(__('Home'), route('frontend.index'));
     });
 
-Route::get('terms', [TermsController::class, 'index'])
-    ->name('pages.terms')
-    ->breadcrumbs(function (Trail $trail) {
-        $trail->parent('frontend.index')
-            ->push(__('Terms & Conditions'), route('frontend.pages.terms'));
-    });
-
-Route::get('covid19-case-investigation-form', [CovidCIFController::class, 'index'])
-    ->name('pages.covid-cif')
-    ->breadcrumbs(function (Trail $trail) {
-        $trail->parent('frontend.index')
-            ->push(__('Covid-19 Case Investigation Form'), route('frontend.pages.covid-cif'));
-    });
-
+Route::get('covid19-case-investigation-form', [CovidCIFController::class, 'index'])->name('pages.covid-cif');
 Route::post('covid19-case-investigation-form/store', [CovidCIFController::class, 'store']);
+
+Route::get('/about', [PagesController::class, 'about'])->name('pages.about');
+Route::get('/blogs', [PagesController::class, 'blogs'])->name('pages.blogs');
+
 Route::get('/our-doctors', [PagesController::class, 'our_doctors'])
     ->name('pages.our-doctors')
     ->breadcrumbs(function (Trail $trail) {

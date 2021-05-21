@@ -28,9 +28,10 @@
 
     <div id="app">
         @include('frontend.includes.nav')
-        @include('includes.partials.messages')
-
         <main>
+            <div class="container">
+                @include('includes.partials.messages')
+            </div>
             @yield('content')
         </main>
         @include('frontend.includes.footer')

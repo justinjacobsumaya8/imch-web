@@ -9,8 +9,14 @@ class PagesController
     {
         return view('frontend.pages.our-doctors');
     }
+    
     public function about()
     {
         return view('frontend.pages.about');
+    }
+
+    public function blogs()
+    {
+        return view('frontend.pages.blogs.index');
     }
 }
