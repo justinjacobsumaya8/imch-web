@@ -4,7 +4,7 @@
 
 @section('content')
 @include('frontend.pages.covid-cif._schedule')
-    <div class="container py-2">
+    <div class="container py-2 form-steps">
         <x-frontend.card>
             <x-slot name="header">
                 @lang('Covid-19 Case Investigation Form')
@@ -14,8 +14,12 @@
                 <form action="{{ url('covid19-case-investigation-form/store') }}" method="post" novalidate="" id="register">
                     @csrf
                     <div class="c-form-active">
-                        <div class="c-form-button d-flex justify-content-center">
-                            <label>Please select schedule first. <a href="javascript:void(0)" data-toggle="modal" data-target="#schedule">Click here</a></label>
+                        <div class="c-form-button d-flex justify-content-center text-center">
+                            <div class="warn-message">
+                                <i data-feather="alert-circle" class="mb-3 stroke-svg"></i>
+                                <p class="mb-2">Please select schedule first.</p> 
+                                <a class="font-bold" href="javascript:void(0)" data-toggle="modal" data-target="#schedule">Click here</a>
+                            </div>
                         </div>
                         <h2>Patient Profile</h2>
                         <section>

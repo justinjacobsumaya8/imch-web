@@ -2,7 +2,7 @@
     min-height: 100px;
 }
 
-.wizard .content > .body {
+.wizard .content>.body {
     width: 100%;
     height: auto;
     padding: 15px;
@@ -13,34 +13,57 @@
     position: relative;
 }
 
-@media (max-width: 767px){
-
+@media (max-width: 767px) {
     .wizard>.steps {
         width: 100% !important;
     }
-
-    .wizard> .content {
+    .wizard>.content {
         width: 100% !important;
     }
-
     .wizard>.actions {
         width: 100% !important;
     }
-
     .wizard>.steps>ul>li {
-    	width: 100% !important;
+        width: 100% !important;
     }
-
     .m-t-2 {
         padding-top: 0.5rem !important;
     }
-
     .btn-sm-block {
         width: 100% !important;
         display: block !important;
     }
 }
 
-.c-form-active {
+.form-steps .card-body {
+    position: relative;
+}
+
+.c-form-active:after {
+    content: '';
+    background: #ccc;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0.5;
+}
+
+.c-form-button {
+    position: absolute;
+    z-index: 2;
+    opacity: 1;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+}
+
+.c-form-button .warn-message {
+    background: #fff;
+    padding: 2em 3em;
+}
+
+.stroke-svg {
+    stroke: #803251;
 }
