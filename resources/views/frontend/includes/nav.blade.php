@@ -46,9 +46,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Our Doctors</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blogs</a>
-                    </li>
                 </ul>
             </div>
             <div class="">
