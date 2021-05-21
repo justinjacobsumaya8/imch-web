@@ -95,18 +95,31 @@
     <div class="container">
         <div class="row align-items-center" style="margin-bottom:10em;">
             <div class="col-md-4">
-                <h1 class="title font-bold text-uppercase font-4em mb-0">Vision</h2>
+                <h1 class="title font-bold text-uppercase font-4em mb-0">Vision</h1>
             </div>
             <div class="col-md-8">
                 <h4 class="mb-0 lh-3 font-thin">IMCH is a quality driven healthcare institution in pursuit of service excellence and hollistic care for its clients and the community</h4>
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-md-4">
-                
+            <div class="col-md-5">
+                <img src="{{asset('img/about-2.png')}}"/>
             </div>
-            <div class="col-md-8">
-                <h4 class="mb-0 lh-3 font-thin">IMCH is a quality driven healthcare institution in pursuit of service excellence and hollistic care for its clients and the community</h4>
+            <div class="col-md-7">
+                <h2 class="font-bold mb-3">Mission Statement</h2>
+                <p class="mb-2"><i data-feather="check-circle" width="15px" height="15px" class="mr-2"></i> We shall provide excellent and cost-effective healthcare services for all through state of the art facilities and a committed and dedicated professional team.</p>
+                <p class="mb-2"><i data-feather="check-circle" width="15px" height="15px" class="mr-2"></i> We shall render globally competitive and holistic training to healthcare providers and our employees.</p>
+                <p class="mb-2"><i data-feather="check-circle" width="15px" height="15px" class="mr-2"></i> We are a dynamic influence in the community we serve, in promoting holistic health and wellness in an environment of cultural diversity, accountability and respect for life.</p>
+                <h5 class="mt-5">IMCH Core Values</h5>
+                <ul>
+                    <li>Quality of Service (Dekalidad na Serbisyo)</li>
+                    <li>Integrity (Baruganan)</li>
+                    <li>Teamwork (Panaghi-usa)</li>
+                    <li>Social Responsibility (Responsibilidad sa Katawhan)</li>
+                    <li>Compassion (Mapuanguron)</li>
+                    <li>Holistice Care (Kinatibuk-ang Pag-alagad)</li>
+                    <li>Cultural Diversity (Kadaiyang Kultura)</li>
+                </ul>
             </div>
         </div>
     </div>

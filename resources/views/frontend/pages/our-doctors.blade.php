@@ -8,8 +8,13 @@
 
 @section('content')
 
-<section class="home-banner-slider slider p-0">
+<section>
     <div class="container">
+         <div class="row mb-5">
+             <div class="col-md-12 text-center">
+                 <h1 class="font-bold">Meet Our Doctors</h1>
+             </div>
+         </div>
         <div class="row">
             <div class="col-md-4">
                 <a href="">

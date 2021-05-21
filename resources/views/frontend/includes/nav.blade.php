@@ -34,18 +34,25 @@
                     <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('frontend.pages.about') }}">About Us</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Our Services
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Services 1</a>
-                            <a class="dropdown-item" href="#">Services 2</a>
+                            <a class="dropdown-item" href="#">Ambulatory Surgical Center</a>
+                            <a class="dropdown-item" href="#">Doctor's Office</a>
+                            <a class="dropdown-item" href="#">Urgent Care Clinic</a>
+                            <a class="dropdown-item" href="#">Nursing Home</a>
+                            <a class="dropdown-item" href="#">Consultation</a>
+                            <a class="dropdown-item" href="#">Laboratory</a>
+                            <a class="dropdown-item" href="#">Critical Care Unit</a>
+                            <a class="dropdown-item" href="#">Imaging Services</a>
+                            <a class="dropdown-item" href="#">Emergency Services & Out Patient Services</a>
                         </div>  
-                    </li> -->
-                    <li class="nav-item {{ request()->is('our-services') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.pages.our-services') }}">Our Services</a>
                     </li>
+                    <!-- <li class="nav-item {{ request()->is('our-services') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.pages.our-services') }}">Our Services</a>
+                    </li> -->
                     <li class="nav-item {{ request()->is('our-doctors') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('frontend.pages.our-doctors') }}">Our Doctors</a>
                     </li>

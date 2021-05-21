@@ -4,6 +4,7 @@
 
 @section('content')
 @include('frontend.pages.covid-cif._schedule')
+    <section>
     <div class="container py-2 form-steps">
         <x-frontend.card>
             <x-slot name="header">
@@ -324,6 +325,7 @@
             </x-slot>
         </x-frontend.card>
     </div><!--container-->
+    </section>
 @endsection
 
 @push('after-scripts')

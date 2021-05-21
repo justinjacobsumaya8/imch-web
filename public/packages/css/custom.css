@@ -52,7 +52,7 @@
 
 .c-form-button {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     opacity: 1;
     width: 100%;
     align-items: center;
