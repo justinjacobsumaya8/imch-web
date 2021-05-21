@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-12 mt-5">
                         <img src="{{ url('img/sign.png') }}" width="40%">
-                        <h5 style="color: #5e5e5e !important;font-size: 15px;">Founder of Mediz Hospital</h5>
+                        <h5 style="color: #5e5e5e !important;font-size: 15px;">Founder of Iligan Medical Center Hospital</h5>
                     </div>
                 </div>
             </div>
