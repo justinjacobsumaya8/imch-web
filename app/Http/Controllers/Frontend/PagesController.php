@@ -19,4 +19,8 @@ class PagesController
     {
         return view('frontend.pages.blogs.index');
     }
+    public function our_services()
+    {
+        return view('frontend.pages.our-services');
+    }
 }

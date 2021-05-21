@@ -4,14 +4,21 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <style type="text/css" scoped>
+
+        .floating-box * {
+            color: #111 !important;
+        }
+        .font-4em {
+            font-size: 4em;
+        }
+        .lh-3 {
+            line-height:1.5;
+        }
+    </style>
 @endpush
 
-<style type="text/css" scoped>
 
-    .floating-box * {
-        color: #111 !important;
-    }
-</style>
 
 @section('content')
 
@@ -22,7 +29,7 @@
         </div>
         <div class="container pos-vertical-center">
             <div class="slick-desc text-center">
-                <h1 class="title font-bold mb-0">About Us</h1>
+                <h1 class="title font-bold mb-3">About Us</h1>
                 <h2 class="sub-title font-thin mb-4">Story about our hospital</h2>
             </div>
         </div>
@@ -32,28 +39,29 @@
     <div class="floating-box" style="background-image: none; top: -10em; padding: 6em;">
         <div class="row">
             <div class="col-md-6 mb-lg-0 mb-5" style="padding-right: 0;">
-                <img src="{{ url('img/about-1.jpeg') }}">
+                <img src="{{ url('img/about-5.jpg') }}" style="border-top-left-radius:8px;border-bottom-left-radius:8px">
             </div>
-            <div class="col-md-6 mb-lg-0" style="padding: 73px 65px 0 70px; background-color: #fff;">
+            <div class="col-md-6 mb-lg-0" style="padding: 73px 65px 0 70px; background-color: #fff;border-top-right-radius:8px;border-bottom-right-radius:8px">
                 <h3 class="mb-0" style="font-size: 28px;font-weight: 600;letter-spacing: 0px;text-transform: none;">Story about our hospital</h3>
                 <span style="font-size: 20px;font-style: normal;color: #803251 !important;margin-top: 5px;">And how we get to this point</span>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                        <p style="font-size: 15px;font-weight: 400;letter-spacing: 0px;text-transform: none;color: #606060 !important;">One of the first major discoveries relevant to the field of pulmonology was the discovery of pulmonary circulation. Originally, it was thought that blood reaching the right side of the heart passed through small ‘pores’ in the septum.</p>
+                        <p style="font-size: 15px;letter-spacing: 0px;text-transform: none;color: #606060 !important;">Iligan Medical Center Hospital actually had its beginning sometime in 1975 when a group of physicians pooled their resources in an answer to community’s demand for a medical care to cater to their needs.  It flourished and became one the major medical institution in the locality.</p>
+                        <p style="font-size: 15px;letter-spacing: 0px;text-transform: none;color: #606060 !important;">It was then, on August 8, 2006, that the Iligan Medical Center Hospital a tertiary hospital with a capacity of 80 beds and Philhealth accredited was formally re-opened under a new management, operated by: Dr. Angelo T. Lagtapon, an EENT physician; Dr. Lisa P.  Fresnido, an Obstetrician; Dr. Celina Torres-Jo, an Internist; Dr. Daniel P. U. Rigor, a Surgeon and Mr. Romualdo T. Monterroyo, a businessman.</p>
                     </div>
-                    <div class="col-md-12 mt-5">
+                    <!-- <div class="col-md-12 mt-5">
                         <img src="{{ url('img/sign.png') }}" width="40%">
                         <h5 style="color: #5e5e5e !important;font-size: 15px;">Founder of Iligan Medical Center Hospital</h5>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container text-center" style="padding-top: 10rem;padding-bottom: 4rem;">
-    <h3 style="font-size: 29px;font-weight: 700;letter-spacing: 0px;text-transform: none;color: #171717;">Certified by the Joint Commission</h3>
-    <span style="font-size: 20px;font-style: normal;color: #803251;margin-top: 8px;">The largest and most respected accreditation agencies</span>
-    <p class="mt-4 px-5" style="font-size: 16px;font-weight: 400;letter-spacing: 0px;text-transform: none;color: #6d6d6d;">One of the first major discoveries relevant to the field of pulmonology was the discovery of pulmonary circulation. Originally, it was thought that blood reaching the right side of the heart passed through small</p>
+<div class="container text-center" style="padding-top: 14rem;padding-bottom: 4rem;">
+    <h3 style="font-size: 29px;font-weight: 700;letter-spacing: 0px;text-transform: none;color: #171717;">A PhilHealth Accredited Center</h3>
+    <span style="font-size: 20px;font-style: normal;color: #803251;margin-top: 8px;">of Quality Tertiary hospital corporation</span>
+    <p class="mt-4 px-5" style="font-size: 16px;letter-spacing: 0px;text-transform: none;color: #6d6d6d;">To date, the group of young entrepreneurs are managing the institution on a hands-on basis and doing their best to bring back the grandeur of what Iligan Medical Center Hospital was before. A PhilHealth accredited Center of Quality Tertiary hospital corporation in Iligan City that renders quality and comfortable health services with its courteous staff.</p>
 
     <div style="border-color: #803251;border-width: 2px !important;border-radius: 0px;-moz-border-radius: 0px;-webkit-border-radius: 0px;height: 35px;border-bottom: 0;width: 0;border-left-style: solid;margin-left: auto;margin-right: auto;margin-top: 2em;"></div>
 </div>
@@ -83,6 +91,27 @@
     </div>
 </div>
 
+<section>
+    <div class="container">
+        <div class="row align-items-center" style="margin-bottom:10em;">
+            <div class="col-md-4">
+                <h1 class="title font-bold text-uppercase font-4em mb-0">Vision</h2>
+            </div>
+            <div class="col-md-8">
+                <h4 class="mb-0 lh-3 font-thin">IMCH is a quality driven healthcare institution in pursuit of service excellence and hollistic care for its clients and the community</h4>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-8">
+                <h4 class="mb-0 lh-3 font-thin">IMCH is a quality driven healthcare institution in pursuit of service excellence and hollistic care for its clients and the community</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="row mt-5 m-0 w-100">
     <div class="col-md-4" style="background-image: url('/img/about-us-3.jpg');background-size: cover;background-position: left;padding: 50px 0px 60px 60px;">
         <div class="d-flex align-items-center">
@@ -107,7 +136,7 @@
             <i class="fa fa-3x fa-heartbeat mr-3 text-white"></i>
             <div>
                 <h3 style="font-size: 21px;color: #ffb3b3;font-weight: 500;letter-spacing: 0px;text-transform: none;">Emergency Service</h3>
-                <div style="font-size: 19px;font-weight: 600;font-style: italic;color: #ffffff;">Call : +1-2345-3455-33</div>
+                <div style="font-size: 19px;font-weight: 600;font-style: italic;color: #ffffff;">Call : (063)222-1234</div>
             </div>
         </div>
     </div>

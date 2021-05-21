@@ -1,5 +1,14 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <style type="text/css" scoped>
+
+        main {
+            background: #f3f3f3;
+        }
+        .height-35 {
+            height:35vh;
+        }
+</style>
 @endpush
 @section('content')
 <section class="home-banner-slider slider p-0">
@@ -42,7 +51,7 @@
 
    
 </section>
-<div class="container height-50 pos-relative">
+<div class="container height-35 pos-relative">
     <div class="floating-box">
         <div class="row">
             <div class="col-md-6 mb-lg-0 mb-5">
@@ -88,7 +97,7 @@
                             <h5 class="font-thin mb-0">Mon - Fri</h5>
                         </div>
                         <div class="col-md-6 text-right">
-                            <h5 class="font-bold mb-0">08:00 - 21:00</h5>
+                            <h5 class="font-semibold mb-0">08:00 - 21:00</h5>
                         </div>
                     </div>
                 </div>
@@ -98,7 +107,7 @@
                             <h5 class="font-thin mb-0">Sat - Sun</h5>
                         </div>
                         <div class="col-md-6 text-right">
-                            <h5 class="font-bold mb-0">08:00 - 21:00</h5>
+                            <h5 class="font-semibold mb-0">08:00 - 21:00</h5>
                         </div>
                     </div>
                 </div>
@@ -106,65 +115,7 @@
         </div>
     </div>
 </div>
-<section class="pt-2">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-6">
-                <h2 class="font-bold">Meet Our Doctors</h2>
-            </div>
-            <div class="col-md-6 text-right">
-                <a href="#">See all Doctors <i data-feather="arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="">
-                    <div class="card-doctors">
-                        <div class="imagebg">
-                            <div class="background-image-holder">
-                                <img src="{{asset('img/doctor-1.jpg')}}"/>
-                            </div>
-                        </div>
-                        <div class="card-body-desc text-center">
-                            <h4 class="font-bold">Dr. Lorraine Dy </h4>
-                            <p class="mb-0">Pediatrician</p>
-                        </div>
-                    </div>  
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="">
-                    <div class="card-doctors">
-                        <div class="imagebg">
-                            <div class="background-image-holder">
-                                <img src="{{asset('img/doctor-2.jpg')}}"/>
-                            </div>
-                        </div>
-                        <div class="card-body-desc text-center">
-                            <h4 class="font-bold">Dr. Henry Sy </h4>
-                            <p class="mb-0">General Practictioner</p>
-                        </div>
-                    </div>
-                </a>  
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card-doctors">
-                        <div class="imagebg">
-                            <div class="background-image-holder">
-                                <img src="{{asset('img/doctor-3.jpg')}}"/>
-                            </div>
-                        </div>
-                        <div class="card-body-desc text-center">
-                            <h4 class="font-bold">Dr. Matthew Diaz </h4>
-                            <p class="mb-0">Anesthesiologist</p>
-                        </div>
-                    </div>  
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 @endsection
 @push('after-scripts')

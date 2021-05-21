@@ -15,7 +15,7 @@
                 <i data-feather="check-circle" class="mr-3"></i>
                 <div class="menu-wrap-text">
                     <h6 class="mb-0 font-semibold">Best Hospital</h6>
-                    <p class="mb-0">Iligan City</p>
+                    <p class="mb-0">in Iligan City</p>
                 </div>
             </div>
             
@@ -34,7 +34,7 @@
                     <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('frontend.pages.about') }}">About Us</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Our Services
                         </a>
@@ -42,9 +42,12 @@
                             <a class="dropdown-item" href="#">Services 1</a>
                             <a class="dropdown-item" href="#">Services 2</a>
                         </div>  
+                    </li> -->
+                    <li class="nav-item {{ request()->is('our-services') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.pages.our-services') }}">Our Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Our Doctors</a>
+                    <li class="nav-item {{ request()->is('our-doctors') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.pages.our-doctors') }}">Our Doctors</a>
                     </li>
                 </ul>
             </div>

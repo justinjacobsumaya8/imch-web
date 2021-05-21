@@ -45,7 +45,6 @@ img {
 }
 
 @import 'menu';
-
 .btn {
     border-radius: 50px;
     &.btn-curve {
@@ -165,6 +164,12 @@ img {
 footer {
     padding: 4em 0 1em;
     background: #f3f3f3;
+    a {
+        &:hover {
+            color: $primary;
+            font-weight: 600;
+        }
+    }
     .f-logo {
         max-height: 5em;
     }

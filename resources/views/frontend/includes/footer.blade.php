@@ -51,7 +51,7 @@
         <hr/>
         <div class="row">
             <div class="col-md-6">
-                <p>Copyright 2021 IMCC. All Rights Reserved.</p>
+                <p class="small"> Copyright 2021 IMCC. All Rights Reserved.</p>
             </div>
             <div class="col-md-6 text-right">
                 

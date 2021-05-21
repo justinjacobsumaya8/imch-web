@@ -27,3 +27,9 @@ Route::get('/our-doctors', [PagesController::class, 'our_doctors'])
     ->breadcrumbs(function (Trail $trail) {
         $trail->push(__('Our Doctors'), route('frontend.pages.our-doctors'));
     });
+
+Route::get('/our-services', [PagesController::class, 'our_services'])
+    ->name('pages.our-services')
+    ->breadcrumbs(function (Trail $trail) {
+        $trail->push(__('Our Services'), route('frontend.pages.our-services'));
+});

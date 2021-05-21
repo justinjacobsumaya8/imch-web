@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', __('Our Doctors'))
+@section('title', __('Our Services'))
 
 @push('after-styles')
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
