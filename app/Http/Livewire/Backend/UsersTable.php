@@ -73,7 +73,9 @@ class UsersTable extends DataTableComponent
             'type' => Filter::make('User Type')
                 ->select([
                     '' => 'Any',
+                    User::TYPE_SUPER_ADMIN => 'Super Administrators',
                     User::TYPE_ADMIN => 'Administrators',
+                    User::TYPE_PERSONNEL => 'Personnels',
                     User::TYPE_USER => 'Users',
                 ]),
             'active' => Filter::make('Active')

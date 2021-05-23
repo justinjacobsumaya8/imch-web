@@ -8,6 +8,7 @@
     <meta name="description" content="@yield('meta_description', appName())">
     <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ url('img/imcc-logo.png') }}" id="favicon">
     @yield('meta')
 
     @stack('before-styles')

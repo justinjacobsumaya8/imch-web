@@ -6,6 +6,10 @@
             @include('backend.auth.includes.partials.role-type', ['type' => $model::TYPE_ADMIN])
         </div>
 
+        <div x-show="userType === '{{ $model::TYPE_PERSONNEL }}'">
+            @include('backend.auth.includes.partials.role-type', ['type' => $model::TYPE_PERSONNEL])
+        </div>
+
         <div x-show="userType === '{{ $model::TYPE_USER }}'">
             @include('backend.auth.includes.partials.role-type', ['type' => $model::TYPE_USER])
         </div>

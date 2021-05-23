@@ -2,7 +2,14 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-4">
-                <img src="{{asset('img/logo-dark.png')}}" class="mb-4 f-logo"/>
+                <!-- <img src="{{asset('img/logo-dark.png')}}" class="mb-4 f-logo"/> -->
+                <div class="d-flex align-items-center mb-4">
+                    <img src="{{ asset('img/imcc-logo.png') }}" class="f-logo" alt=""/>
+                    <div class="ml-3">
+                        <h3 class="mb-0" style="font-size: 28px; font-weight: 600; letter-spacing: 0px; text-transform: none;">Iligan Medical</h3>
+                        <h5 class="mb-0 font-semibold">Center Hospital</h5>
+                    </div>
+                </div>
                 <p class="small">Our goal is to deliver quality of care in a courteous, respectful, and compassionate manner. We hope you will allow us to care for you and strive to be the first and best choice for your family healthcare.</p>
                 
             </div>

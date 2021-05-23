@@ -1,7 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container">
         <div class="bar">
-            <img src="{{ asset('img/logo-dark.png') }}" class="logo" alt=""/>
+            <div class="d-flex align-items-center">
+                <img src="{{ asset('img/imcc-logo.png') }}" class="logo" alt=""/>
+                <div class="ml-3">
+                    <h3 class="mb-0" style="font-size: 28px; font-weight: 600; letter-spacing: 0px; text-transform: none;">Iligan Medical</h3>
+                    <h5 class="mb-0 font-semibold">Center Hospital</h5>
+                </div>
+            </div>
         </div>
         <div class="wrap-container">
             <div class="menu-wrap mr-3">
