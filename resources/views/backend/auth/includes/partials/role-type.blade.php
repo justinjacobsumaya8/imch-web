@@ -15,7 +15,7 @@
         </div><!--form-check-->
     </div>
 
-    @if ($role->isAdmin())
+    @if ($role->isSuperAdmin())
         <blockquote class="ml-3">
             <i class="fa fa-check-circle"></i> @lang('All Permissions')
         </blockquote>

@@ -9,9 +9,9 @@ use DB;
 
 class EntriesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	return view('backend.entries.index');
+    	return view('backend.entries.index', compact('request'));
     }
 
     public function show($id, $entry_schedule_id)
@@ -73,13 +73,14 @@ class EntriesController extends Controller
 
         $entry_schedule = EntrySchedule::find($entry_schedule_id);
 
-        $redirect = redirect()->back()->with('flash_success', 'Status updated successfully.');
         if ($request->status == 'Approved') 
         {
             $entry_schedule->is_approved = true;
             $entry_schedule->approved_by = auth()->user()->id;
             $entry_schedule->approved_at = now();
             $entry_schedule->save();
+
+            $redirect = redirect('admin/entries')->with('flash_success', 'Entry approved successfully.');
         }
 
         else if ($request->status == 'Cancel') 
@@ -89,7 +90,7 @@ class EntriesController extends Controller
             $entry_schedule->cancelled_at = now();
             $entry_schedule->save();
 
-            $redirect = redirect('admin/entries')->with('flash_success', 'Entry successfully cancelled.');
+            $redirect = redirect('admin/entries')->with('flash_success', 'Entry cancelled successfully.');
         }
 
         else if ($request->status == 'Resched') 
@@ -108,7 +109,7 @@ class EntriesController extends Controller
             $new_sched->schedule_date = $request->schedule_date;
             $new_sched->save();
 
-            $redirect = redirect('admin/entries/'.$entry->id.'/show/'.$new_sched->id)->with('flash_success', 'Status updated successfully.');
+            $redirect = redirect('admin/entries')->with('flash_success', 'Entry rescheduled succesfully.');
         }
 
         return $redirect;
@@ -120,14 +121,51 @@ class EntriesController extends Controller
         return view('backend.entries.print', compact('entry'));
     }
 
-    public function getEntries()
+    public function getEntries(Request $request)
     {
+        $user = auth()->user();
+
         $data = EntrySchedule::join('entries as e', 'e.id', 'entry_has_schedules.entry_id')
                             ->join('schedules as s', 's.id', 'entry_has_schedules.schedule_id')
                             ->where('is_cancelled', false)
-                            ->select('entry_has_schedules.*', 'e.first_name', 'e.middle_name', 'e.last_name', 'e.status', 's.name')
-                            ->get();
+                            ->select('entry_has_schedules.*', 'e.first_name', 'e.middle_name', 'e.last_name', 'e.status', 's.name', 'e.permanent_cellphone_number');
 
-    	return response()->json(['data' => $data]);
+        if ($user->hasRole('Administrator')) 
+        {
+            $data = $data->where('entry_has_schedules.is_approved', true)
+                        ->where('entry_has_schedules.is_resched', false);
+        }
+
+        if ($user->hasRole('Personnel')) 
+        {
+            $data = $data->where('entry_has_schedules.is_approved', false)
+                        ->where('entry_has_schedules.is_resched', false);
+        }
+
+        if ($request->date_schedule) 
+        {
+            $data = $data->whereDate('schedule_date', $request->date_schedule);
+        }
+        
+        $data = $data->get();
+
+        if ($request->ajax()) 
+        {
+            return response()->json(['data' => $data]);
+        }
+
+        return redirect('admin/entries?date_schedule=' . $request->date_schedule);
+    }
+
+    public function getScheduleModal($entry_schedule_id)
+    {
+        $entry_schedule = EntrySchedule::join('schedules as s', 's.id', 'entry_has_schedules.schedule_id')
+                                ->where('is_cancelled', false)
+                                ->select('entry_has_schedules.*', 's.name')
+                                ->find($entry_schedule_id);
+
+        $schedules = Schedule::active()->get();
+
+        return view('backend.entries._schedule', compact('entry_schedule', 'schedules'));
     }
 }

@@ -12,7 +12,7 @@ trait RoleAttribute
      */
     public function getPermissionsLabelAttribute(): string
     {
-        if ($this->isAdmin()) {
+        if ($this->isSuperAdmin()) {
             return 'All';
         }
 

@@ -30,6 +30,7 @@ Route::group(['prefix' => 'entries'], function () {
 	    });
 
 	Route::patch('{id}/update/{entry_schedule_id}', [EntriesController::class, 'update']);
+	Route::get('schedule/{entry_schedule_id}', [EntriesController::class, 'getScheduleModal']);
 
 	Route::get('/{id}/print', [EntriesController::class, 'print'])
 	    ->name('entries.print')

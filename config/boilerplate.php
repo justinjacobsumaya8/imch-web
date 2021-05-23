@@ -93,7 +93,9 @@ return [
              * Should be Administrator by design and unable to change from the backend
              * It is not recommended to change
              */
+            'super_admin' => 'Super Administrator',
             'admin' => 'Administrator',
+            'personnel' => 'Personnel',
         ],
     ],
 

@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="{{ htmlLang() }}" @langrtl dir="rtl" @endlangrtl>
 <head>
     <meta charset="utf-8">
@@ -52,6 +53,7 @@
     <script type="text/javascript" src="{{ asset('packages/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('packages/datatables.net-fixedheader-bs4/js/fixedHeader.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('packages/moment-js/moment.min.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <livewire:scripts />
     @stack('after-scripts')
 </body>

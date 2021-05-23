@@ -24,7 +24,9 @@
                             <div class="col-md-10">
                                 <select name="type" class="form-control" required x-on:change="userType = $event.target.value">
                                     <option value="{{ $model::TYPE_USER }}" {{ $user->type === $model::TYPE_USER ? 'selected' : '' }}>@lang('User')</option>
+                                    <option value="{{ $model::TYPE_SUPER_ADMIN }}" {{ $user->type === $model::TYPE_SUPER_ADMIN ? 'selected' : '' }}>@lang('Super Administrator')</option>
                                     <option value="{{ $model::TYPE_ADMIN }}" {{ $user->type === $model::TYPE_ADMIN ? 'selected' : '' }}>@lang('Administrator')</option>
+                                    <option value="{{ $model::TYPE_PERSONNEL }}" {{ $user->type === $model::TYPE_PERSONNEL ? 'selected' : '' }}>@lang('Personnel')</option>
                                 </select>
                             </div>
                         </div><!--form-group-->

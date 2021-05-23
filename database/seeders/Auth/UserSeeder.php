@@ -22,9 +22,27 @@ class UserSeeder extends Seeder
 
         // Add the master administrator, user id of 1
         User::create([
-            'type' => User::TYPE_ADMIN,
+            'type' => User::TYPE_SUPER_ADMIN,
             'name' => 'Super Admin',
+            'email' => 'super@admin.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        User::create([
+            'type' => User::TYPE_ADMIN,
+            'name' => 'Admin',
             'email' => 'admin@admin.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        User::create([
+            'type' => User::TYPE_PERSONNEL,
+            'name' => 'Personnel',
+            'email' => 'personnel@admin.com',
             'password' => 'secret',
             'email_verified_at' => now(),
             'active' => true,

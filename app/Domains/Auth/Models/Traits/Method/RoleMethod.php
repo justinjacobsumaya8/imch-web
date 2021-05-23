@@ -12,9 +12,20 @@ trait RoleMethod
     /**
      * @return mixed
      */
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->name === config('boilerplate.access.role.super_admin');
+    }
+
     public function isAdmin(): bool
     {
         return $this->name === config('boilerplate.access.role.admin');
+    }
+
+    public function isPersonnel(): bool
+    {
+        return $this->name === config('boilerplate.access.role.personnel');
     }
 
     /**

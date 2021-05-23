@@ -9,7 +9,11 @@
     <div class="mb-2">
         <div class="d-flex justify-content-between">
             <a href="{{ url('admin/entries') }}" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Back</a>
+            @if(null)
+            @if($logged_in_user->hasAnyRole(['Super Administrator', 'Administrator']))
             <a href="{{ url('admin/entries/' . $entry->id . '/print') }}" target="_blank" class="btn btn-outline-info"><i class="fa fa-print"></i> Print</a>
+            @endif
+            @endif
         </div>
     </div>
     <x-backend.card>
@@ -32,37 +36,41 @@
                         @endif
                     </h6>  
                 </div>
-                @if(!$entry_schedule->is_cancelled && !$entry_schedule->is_resched && !$entry_schedule->is_approved)
-                <div class="col-md-6">
-                    <form action="{{ url('admin/entries/' . $entry->id . '/update/' . $entry_schedule->id) }}" method="POST" id="form-update">
-                        @csrf
-                        @method('PATCH')
-                        <div class="row float-right">
-                            <div class="col-md-12">
-                                <div class="input-group">
-                                    <select name="status" class="form-control" id="select-status">
-                                        <option value="">-- Select Status --</option>
-                                        @foreach($statuses as $status)
-                                        <option value="{{ $status }}" 
-                                        @if($entry_schedule->is_approved)
-                                            selected
-                                        @elseif($entry->is_cancelled)
-                                            selected
-                                        @elseif($entry->is_resched)
-                                            selected
-                                        @endif
-                                        >{{ $status }}</option>
+                @if(null)
+                @if($logged_in_user->hasAnyRole(['Super Administrator', 'Personnel']))
+                    @if(!$entry_schedule->is_cancelled && !$entry_schedule->is_resched && !$entry_schedule->is_approved)
+                    <div class="col-md-6">
+                        <form action="{{ url('admin/entries/' . $entry->id . '/update/' . $entry_schedule->id) }}" method="POST" id="form-update">
+                            @csrf
+                            @method('PATCH')
+                            <div class="row float-right">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <select name="status" class="form-control" id="select-status">
+                                            <option value="">-- Select Status --</option>
+                                            @foreach($statuses as $status)
+                                            <option value="{{ $status }}" 
+                                            @if($entry_schedule->is_approved)
+                                                selected
+                                            @elseif($entry->is_cancelled)
+                                                selected
+                                            @elseif($entry->is_resched)
+                                                selected
+                                            @endif
+                                            >{{ $status }}</option>
 
-                                        @endforeach
-                                    </select>
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-primary">Update</button>  
-                                    </div>
-                                </div>  
+                                            @endforeach
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary">Update</button>  
+                                        </div>
+                                    </div>  
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                    @endif
+                @endif
                 @endif
             </div>
         </x-slot>

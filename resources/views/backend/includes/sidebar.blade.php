@@ -24,9 +24,10 @@
                 :href="route('admin.entries')"
                 :active="activeClass(Route::is('admin.entries*'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-notes"
-                :text="__('Entries')" />
+                :text="$logged_in_user->hasRole('Personnel') ? 'Pending Entries' : 'Entries'" />
         </li>
 
+        @if($logged_in_user->hasAllAccess())
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
@@ -35,6 +36,7 @@
                 icon="c-sidebar-nav-icon fa fa-calendar-alt"
                 :text="__('Schedules')" />
         </li>
+        @endif
 
         @if (
             $logged_in_user->hasAllAccess() ||

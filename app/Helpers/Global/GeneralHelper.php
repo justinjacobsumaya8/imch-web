@@ -38,7 +38,7 @@ if (! function_exists('homeRoute')) {
     function homeRoute()
     {
         if (auth()->check()) {
-            if (auth()->user()->isAdmin()) {
+            if (auth()->user()->isSuperAdmin() || auth()->user()->isAdmin() || auth()->user()->isPersonnel()) {
                 return 'admin.dashboard';
             }
 

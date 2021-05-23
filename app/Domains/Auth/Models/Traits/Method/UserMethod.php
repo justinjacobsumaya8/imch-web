@@ -20,9 +20,19 @@ trait UserMethod
     /**
      * @return mixed
      */
+    public function isSuperAdmin(): bool
+    {
+        return $this->type === self::TYPE_SUPER_ADMIN;
+    }
+
     public function isAdmin(): bool
     {
         return $this->type === self::TYPE_ADMIN;
+    }
+
+    public function isPersonnel(): bool
+    {
+        return $this->type === self::TYPE_PERSONNEL;
     }
 
     /**
@@ -38,7 +48,7 @@ trait UserMethod
      */
     public function hasAllAccess(): bool
     {
-        return $this->isAdmin() && $this->hasRole(config('boilerplate.access.role.admin'));
+        return $this->isSuperAdmin() && $this->hasRole(config('boilerplate.access.role.super_admin'));
     }
 
     /**
