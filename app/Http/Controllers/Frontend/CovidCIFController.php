@@ -75,7 +75,7 @@ class CovidCIFController extends Controller
                                 AND e.is_resched = false 
                                 AND e.is_approved = true
                                 GROUP BY schedule_id) e "),"e.schedule_id","schedules.id")
-                            ->select('schedules.name', 'schedules.limit', DB::raw('NULLIF(e.schedule_count, 0) as schedule_count'), DB::raw('(schedules.limit - NULLIF(e.schedule_count, 0)) as schedule_availability'))
+                            ->select('schedules.name', 'schedules.limit', DB::raw('COALESCE(e.schedule_count, 0) as schedule_count'), DB::raw('(schedules.limit - COALESCE(e.schedule_count, 0)) as schedule_availability'))
                             ->where('schedules.is_deleted', false)
                             ->get();
         }
