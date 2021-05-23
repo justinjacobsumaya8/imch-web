@@ -24,12 +24,12 @@
 
                 <tr>
                     <th width="">@lang('Date of Departure')</th>
-                    <td>{{ $entry->departure_date }}</td>
+                    <td>{{ date('F d, Y', strtotime($entry->departure_date)) }}</td>
                 </tr>
 
                 <tr>
                     <th width="">@lang('Date of Arrival in Philippines')</th>
-                    <td>{{ $entry->philippine_arrival_date }}</td>
+                    <td>{{ date('F d, Y', strtotime($entry->philippine_arrival_date)) }}</td>
                 </tr>
 
                 <tr>

@@ -5,30 +5,66 @@
 @endsection
 
 @section('content')
+@include('backend.entries._schedule')
     <div class="mb-2">
-        <a href="{{ url('admin/entries') }}" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Back</a>
+        <div class="d-flex justify-content-between">
+            <a href="{{ url('admin/entries') }}" class="btn btn-outline-primary"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{ url('admin/entries/' . $entry->id . '/print') }}" target="_blank" class="btn btn-outline-info"><i class="fa fa-print"></i> Print</a>
+        </div>
     </div>
     <x-backend.card>
         <x-slot name="header">
-            <form action="{{ url('admin/entries/' . $entry->id . '/update') }}" method="POST">
-                @csrf
-                @method('PATCH')
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <select name="status" class="form-control">
-                                <option value="">-- Select Status --</option>
-                                @foreach($statuses as $status)
-                                <option value="{{ $status }}" {{ $entry->status == $status ? 'selected' : '' }}>{{ $status }}</option>
-                                @endforeach
-                            </select>
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">Update</button>  
-                            </div>
-                        </div>  
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <label>Preferred Date</label>
+                    <h6>{{ date('F d, Y', strtotime($entry_schedule->schedule_date)) }}</h6>
                 </div>
-            </form>
+                <div class="col-md-3">
+                    <label>Preferred Schedule</label>
+                    <h6>
+                        {{ $entry_schedule->name }} 
+                        @if($schedule->schedule_availability == 1)
+                            <small class="text-warning">Available Slot: {{ $schedule->schedule_availability }}</small>
+                        @elseif($schedule->schedule_availability <= 0)
+                            <small class="text-danger">Available Slot: {{ $schedule->schedule_availability }}</small>
+                        @else
+                            <small class="text-success">Available Slot: {{ $schedule->schedule_availability }}</small>
+                        @endif
+                    </h6>  
+                </div>
+                @if(!$entry_schedule->is_cancelled && !$entry_schedule->is_resched && !$entry_schedule->is_approved)
+                <div class="col-md-6">
+                    <form action="{{ url('admin/entries/' . $entry->id . '/update/' . $entry_schedule->id) }}" method="POST" id="form-update">
+                        @csrf
+                        @method('PATCH')
+                        <div class="row float-right">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <select name="status" class="form-control" id="select-status">
+                                        <option value="">-- Select Status --</option>
+                                        @foreach($statuses as $status)
+                                        <option value="{{ $status }}" 
+                                        @if($entry_schedule->is_approved)
+                                            selected
+                                        @elseif($entry->is_cancelled)
+                                            selected
+                                        @elseif($entry->is_resched)
+                                            selected
+                                        @endif
+                                        >{{ $status }}</option>
+
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">Update</button>  
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                @endif
+            </div>
         </x-slot>
 
         <x-slot name="body">
@@ -96,4 +132,55 @@
 @endsection
 
 @push('after-scripts')
+<script type="text/javascript">
+    $('#select-status').on('change', function(){
+        var value = $(this).val();
+        if (value == 'Resched') 
+        {
+            $('#schedule').modal('show');
+        }
+    });
+
+    $('#schedule_date').on('change', function(){
+        var value = $(this).val();
+        getSchedule(value);
+    });
+
+    var schedule_date = $('#schedule_date').val();
+    getSchedule(schedule_date);
+
+    function getSchedule(value)
+    {
+        $.ajax({
+            url: '{{ url('covid19-case-investigation-form/schedules') }}',
+            data: {schedule_date: value},
+            success: function(response)
+            {
+                $.each(response, function(i, data){
+
+                    if (data.schedule_availability <= data.limit && data.schedule_availability != 1) 
+                    {
+                        $('.span-slot-' + data.name).addClass('text-success').text(data.schedule_availability);
+                    }
+
+                    if (data.schedule_availability == 1) 
+                    {
+                        $('.span-slot-' + data.name).addClass('text-warning').text(data.schedule_availability);
+                    }
+
+                    if (data.schedule_availability == 0) 
+                    {
+                        if ($('.radio-slot-' + data.name).is(':checked')) 
+                        {
+                            $('#form-update').find('button').prop('disabled', true);
+                        }
+
+                        $('.radio-slot-' + data.name).prop('disabled', true);
+                        $('.span-slot-' + data.name).addClass('text-danger').text(data.schedule_availability);
+                    }
+                });
+            }
+        });
+    }
+</script>
 @endpush

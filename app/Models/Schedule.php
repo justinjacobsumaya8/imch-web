@@ -15,4 +15,8 @@ class Schedule extends Model
     {
     	$query->where('is_deleted', '!=', true);
     }
+
+    public function entries(){
+        return $this->hasMany('App\Models\EntrySchedule');
+    }
 }

@@ -17,6 +17,7 @@ class CreateEntryHasSchedulesTable extends Migration
             $table->id();
             $table->unsignedInteger('entry_id');
             $table->unsignedInteger('schedule_id');
+            $table->string('schedule_name')->nullable();
             $table->date('schedule_date');
             $table->boolean('is_approved')->default(0);
             $table->unsignedInteger('approved_by')->nullable();

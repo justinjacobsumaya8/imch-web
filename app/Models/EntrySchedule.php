@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EntryScheduule extends Model
+class EntrySchedule extends Model
 {
     use HasFactory;
+
+    protected $table = 'entry_has_schedules';
 
     protected $guarded = [];
 }

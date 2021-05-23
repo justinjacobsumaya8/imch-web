@@ -22,14 +22,21 @@ Route::group(['prefix' => 'entries'], function () {
 	        $trail->push(__('Entries'), route('admin.entries'));
 	    });
 
-	Route::get('/{id}/show', [EntriesController::class, 'show'])
+	Route::get('/{id}/show/{entry_schedule_id}', [EntriesController::class, 'show'])
 	    ->name('entries.show')
 	    ->breadcrumbs(function (Trail $trail) {
 	        $trail->parent('admin.entries')
-	            ->push('Show Entry', url('admin/entries/' . '{id}' . '/show'  ));
+	            ->push('Show Entry', url('admin/entries/' . '{id}' . '/show/' . '{entry_schedule_id}'));
 	    });
 
-	Route::patch('{id}/update', [EntriesController::class, 'update']);
+	Route::patch('{id}/update/{entry_schedule_id}', [EntriesController::class, 'update']);
+
+	Route::get('/{id}/print', [EntriesController::class, 'print'])
+	    ->name('entries.print')
+	    ->breadcrumbs(function (Trail $trail) {
+	        $trail->parent('admin.entries')
+	            ->push('Print Entry', url('admin/entries/' . '{id}' . '/print'  ));
+	    });
 });
 
 Route::group(['prefix' => 'schedules'], function () {

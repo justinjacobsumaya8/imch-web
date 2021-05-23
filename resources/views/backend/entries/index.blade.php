@@ -14,8 +14,9 @@
             		<tr>
             			<th>Full Name</th>
             			<th>Status</th>
-            			<th>Date Created</th>
-            			<th>Date Updated</th>
+                        <th>Time Schedule</th>
+            			<th>Date Schedule</th>
+                        <th>Date Created</th>
             			<th>Action</th>
             		</tr>
             	</thead>
@@ -33,39 +34,53 @@
         ajax: "{{ url('admin/entries/get') }}",
         columns: [
             {
-                data: 'full_name'
+                data: 'last_name',
+                render: function(data, type, row, meta)
+                {
+                    var html = row.last_name + ', ' + row.first_name + ' ' + row.middle_name;
+                    return html;
+                }
             },
             {
                 data: 'status',
                 render: function(data, type, row, meta)
                 {
                     var html = '<span class="badge badge-warning">Pending</span>';
-                    if (data == 'Negative') 
+
+                    if (row.is_approved) 
                     {
-                        html = '<span class="badge badge-success">Negative</span>';
+                        html = '<span class="badge badge-success">Approved</span>';
                     }
 
-                    if (data == 'Positive') 
+                    if (row.is_cancelled) 
                     {
-                        html = '<span class="badge badge-danger">Positive</span>';
+                        html = '<span class="badge badge-danger">Cancelled</span>';
+                    }
+
+                    if (row.is_resched) 
+                    {
+                        html = '<span class="badge badge-info">Rescheduled</span>';
                     }
 
                     return html;
                 }
             },
             {
-                data: 'created_at',
+                data: 'name'
+            },
+            {
+                data: 'schedule_date',
                 render: function(data, type, row, meta)
                 {
-                    var date = moment(data).format('MMMM Do YYYY, h:mm:ss a');
+                    var date = moment(data).format('MMMM DD, YYYY');
                     return date;
                 }
             },
             {
-                data: 'updated_at',
+                data: 'created_at',
                 render: function(data, type, row, meta)
                 {
-                    var date = moment(data).format('MMMM Do YYYY, h:mm:ss a');
+                    var date = moment(data).format('MMMM Do YYYY, h:mm:ss A');
                     return date;
                 }
             },
@@ -73,7 +88,7 @@
                 data: 'id',
                 render: function(data, type, row, meta)
                 {
-                    return '<a class="btn btn-sm btn-primary" href="{{ url('admin/entries') }}/' + data + '/show"><i class="fa fa-eye"></i> Show</a>';
+                    return '<a class="btn btn-sm btn-primary" href="{{ url('admin/entries') }}/' + row.entry_id + '/show/' + data +'"><i class="fa fa-eye"></i> Show</a>';
                 }
             }
         ],
@@ -81,7 +96,7 @@
             
             $(row).find('td:first-child').addClass('text-capitalize');
         },
-        order: [2, 'desc']
+        order: [4, 'desc']
     });
 </script>
 @endpush

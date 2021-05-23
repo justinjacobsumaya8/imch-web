@@ -17,16 +17,13 @@ Route::get('/', [HomeController::class, 'index'])
     });
 
 Route::get('covid19-case-investigation-form', [CovidCIFController::class, 'index'])->name('pages.covid-cif');
+Route::get('covid19-case-investigation-form/schedules', [CovidCIFController::class, 'schedules']);
 Route::post('covid19-case-investigation-form/store', [CovidCIFController::class, 'store']);
 
 Route::get('/about', [PagesController::class, 'about'])->name('pages.about');
 Route::get('/blogs', [PagesController::class, 'blogs'])->name('pages.blogs');
 
-Route::get('/our-doctors', [PagesController::class, 'our_doctors'])
-    ->name('pages.our-doctors')
-    ->breadcrumbs(function (Trail $trail) {
-        $trail->push(__('Our Doctors'), route('frontend.pages.our-doctors'));
-    });
+Route::get('/our-doctors', [PagesController::class, 'our_doctors'])->name('pages.our-doctors');
 
 Route::get('/our-services', [PagesController::class, 'our_services'])
     ->name('pages.our-services')

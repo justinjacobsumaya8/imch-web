@@ -4,19 +4,22 @@
 
 @section('content')
 @include('frontend.pages.covid-cif._schedule')
-    <section>
+<section class="p-0">
     <div class="container py-2 form-steps">
         <x-frontend.card>
             <x-slot name="header">
-                @lang('Covid-19 Case Investigation Form')
+                <div class="d-flex justify-content-between">
+                    @lang('Covid-19 Case Investigation Form')
+                    <a href="javascript:void(0)" id="btn-change-schedule" data-toggle="modal" data-target="#schedule" style="display: none;">Change Schedule</a>
+                </div>
             </x-slot>
 
             <x-slot name="body">
                 <form action="{{ url('covid19-case-investigation-form/store') }}" method="post" novalidate="" id="register">
                     @csrf
-                    <div class="c-form-active">
-                        <div class="c-form-button d-flex justify-content-center text-center">
-                            <div class="warn-message">
+                    <div class="">
+                        <div class="div-2 c-form-button d-flex justify-content-center text-center">
+                            <div class="warn-message" style="display: none;">
                                 <i data-feather="alert-circle" class="mb-3 stroke-svg"></i>
                                 <p class="mb-2">Please select schedule first.</p> 
                                 <a class="font-bold" href="javascript:void(0)" data-toggle="modal" data-target="#schedule">Click here</a>
@@ -373,8 +376,14 @@
                     }  
                     else
                     {
-                        var dataString = form.serialize();
-                        Cookies.set('formCookie', dataString, { expires: 1 });
+                        var schedule_date = $('#schedule_date').val();
+                        var schedule_radio_id = $('.radio-schedule:checked').attr('id');
+                        getSchedule(schedule_date);
+
+                        var dataString = form.serialize() + "&schedule_date=" + schedule_date + "&inlineRadio=" + schedule_radio_id;
+
+                        // set cookie expiry to 180 min = 3 hours
+                        Cookies.set('formCookie', dataString, { expires: 180 / 1440 });
                         return true;
                     }
                 },
@@ -420,16 +429,96 @@
                 $('#current_home_phone_number').val($('#permanent_home_phone_number').val());
                 $('#current_cellphone_number').val($('#permanent_cellphone_number').val());
                 // $('#current_other_email_address').val($('#permanent_email_address').val());
-            })
+            });
+
+            // $("#schedule_date").datepicker({
+            //     minDate: new Date()
+            // });
+
+            $("#schedule_date").on('change', function(e) {
+                var value = $(this).val();
+                getSchedule(value);
+            });
+
+            $('.radio-schedule').on('change', function(){
+                var date = $('#schedule_date').val();
+                var form = $('#register');
+
+                if (date) 
+                {
+                    this.checked = true;
+                    form.children('div').removeClass('c-form-active').find('.c-form-button').removeClass('c-form-button');
+                    form.find('.warn-message').hide();
+                    $('#btn-change-schedule').show();
+                }
+                else
+                {
+                    this.checked = false;
+                    swal({
+                      text: "Please select a date first",
+                      icon: "warning",
+                    });
+                }
+            });
+
+            if($('.radio-schedule:checked').val())
+            {
+                $('#register').children('div').removeClass('c-form-active').find('.c-form-button').removeClass('c-form-button');
+                $('#register').find('.warn-message').hide();
+            }
+
         });
+
+        function getSchedule(value)
+        {
+            $.ajax({
+                url: '{{ url('covid19-case-investigation-form/schedules') }}',
+                data: {schedule_date: value},
+                success: function(response)
+                {
+                    $.each(response, function(i, data){
+
+                        if (data.schedule_availability == 1) 
+                        {
+                            $('.span-slot-' + data.name).addClass('text-warning').text(data.schedule_availability);
+                        }
+                        else if (data.schedule_availability <= 0) 
+                        {
+                            if ($('.radio-slot-' + data.name).is(':checked')) 
+                            {
+                                $('#register').children('div').addClass('c-form-active');
+                                $('#register').find('.div-2').addClass('c-form-button');
+                                $('#register').find('.warn-message').show().find('p').text('Schedule not available. Please change schedule.');
+                            }
+
+                            $('.radio-slot-' + data.name).prop('disabled', true);
+                            $('.span-slot-' + data.name).addClass('text-danger').text(data.schedule_availability);
+                        }
+                        else
+                        {
+                            $('.span-slot-' + data.name).addClass('text-success').text(data.schedule_availability);
+                        }
+                    });
+                }
+            });
+        }
 
         function getCookieFormValues()
         {
             // get serialized string from cookie    
             cookieData = Cookies.get('formCookie');
 
+            var form = $('#register');
+
+            form.children('div').addClass('c-form-active');
+            form.find('.warn-message').show();
+
             // if cookie exists continue
-            if (cookieData != null) {
+            if (cookieData != null) 
+            {
+                form.children('div').removeClass('c-form-active').find('.c-form-button').removeClass('c-form-button');
+                form.find('.warn-message').hide();
+
                 // split cookieData string into an array of fields and their values
                 cookieArray = cookieData.split('&');
                 // go through each field and split it too to get field name and it's value
@@ -451,6 +540,17 @@
                             return item;
                         }).join('@');
                         $('#register [name="'+field[0]+'"]').val(permanent_email);
+                    }
+                    else if (field[0] == 'schedule_date')
+                    {
+                        getSchedule(field[1]);
+                        $('#schedule_date').val(field[1]);
+                    }
+                    else if (field[0] == 'inlineRadio')
+                    {
+                        $('#btn-change-schedule').show();
+
+                        $('#' + field[1]).prop('checked', true);
                     }
                     else
                     {

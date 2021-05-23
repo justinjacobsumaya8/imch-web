@@ -19,7 +19,7 @@
 
                 <tr>
                     <th width="30%">@lang('Birthday')</th>
-                    <td>{{ $entry->birthday }}</td>
+                    <td>{{ date('F d, Y', strtotime($entry->birthday)) }}</td>
                 </tr>
 
                 <tr>

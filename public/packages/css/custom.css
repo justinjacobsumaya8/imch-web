@@ -56,7 +56,7 @@
     opacity: 1;
     width: 100%;
     align-items: center;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .c-form-button .warn-message {

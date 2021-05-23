@@ -45,6 +45,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="{{ url('packages/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ url('packages/jquery-steps/jquery.steps.min.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         feather.replace()
     </script>
