@@ -70,7 +70,7 @@
                                 </td>
                                 <td>
                                     Birthday (mm/dd/yyyy)
-                                    <h6 class="text-capitalize mt-1"><strong>{{ date('M d, Y', strtotime($entry->birthday)) }}</strong></h6>
+                                    <h6 class="text-capitalize mt-1"><strong>{{ $entry->birthday ? date('M d, Y', strtotime($entry->birthday)) : '' }}</strong></h6>
                                 </td>
                                 <td>
                                     Age
@@ -263,11 +263,11 @@
                                 </td>
                                 <td>
                                     Date of Departure (mm/dd/yyyy)
-                                    <h6 class="text-capitalize mt-1"><strong>{{ date('M d, Y', strtotime($entry->departure_date)) }}</strong></h6>
+                                    <h6 class="text-capitalize mt-1"><strong>{{ $entry->departure_date ? date('M d, Y', strtotime($entry->departure_date)) : '' }}</strong></h6>
                                 </td>
                                 <td>
                                     Date of Arrival in Philippines:
-                                    <h6 class="text-capitalize mt-1"><strong>{{ date('M d, Y', strtotime($entry->philippine_arrival_date)) }}</strong></h6>
+                                    <h6 class="text-capitalize mt-1"><strong>{{ $entry->philippine_arrival_date ? date('M d, Y', strtotime($entry->philippine_arrival_date)) : '' }}</strong></h6>
                                 </td>
                             </tr>
                             <tr>
