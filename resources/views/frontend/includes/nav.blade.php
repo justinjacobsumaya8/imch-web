@@ -67,7 +67,9 @@
             <div class="">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
+                        @if(!$logged_in_user)
                         <a class="btn btn-primary btn-curve" href="{{ url('login') }}"><span>Login</span></a>
+                        @endif
                     </li>
                     
                 </ul>

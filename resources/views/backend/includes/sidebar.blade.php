@@ -6,6 +6,7 @@
         <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
             <use xlink:href="{{ asset('img/brand/coreui.svg#signet') }}"></use>
         </svg>
+        <!-- <img src="{{ asset('img/imcc-logo.png') }}" width="30%" style="padding: 10px;"> -->
     </div><!--c-sidebar-brand-->
 
     <ul class="c-sidebar-nav">
