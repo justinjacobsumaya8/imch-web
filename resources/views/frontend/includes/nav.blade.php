@@ -67,7 +67,7 @@
             <div class="">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-primary btn-curve" href="#"><span>Contact Us</span></a>
+                        <a class="btn btn-primary btn-curve" href="{{ url('login') }}"><span>Login</span></a>
                     </li>
                     
                 </ul>
